@@ -1,10 +1,15 @@
 import java.util.Scanner;
 
-public class Calculator {
+public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        String string = scanner.nextLine().trim();
-        String [] elements = string.split(" ");
+        String input = scanner.nextLine().trim();
+        System.out.println(calc(input));
+
+    }
+
+    public static String calc(String input) {
+        String [] elements = input.split(" ");
         if(elements.length > 3 | elements.length < 3){
             throw new IllegalStateException("Формат математической операции не удовлетворяет заданию - два операнда и один оператор (+, -, /, *)");
         }
@@ -83,9 +88,9 @@ public class Calculator {
                 x %= arRims[i];
                 i++;
             }
-            System.out.print(rimResult);
+            return rimResult;
         } else {
-            System.out.println(arabicResult);
+            return String.valueOf(arabicResult);
         }
     }
 }
